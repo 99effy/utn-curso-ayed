@@ -4,22 +4,22 @@ using namespace std;
 
 int main() {
 
-    string  motivoInfraccion;
+    string  motivoInfraccion = "";
     char    gravedadInfraccion;
-    int     valorTotalMultaL,
-            valorTotalMultaM,
-            valorTotalMultaG,
-            cantidadMultasGraves,
+    int     valorTotalMultaL = 0,
+            valorTotalMultaM = 0,
+            valorTotalMultaG = 0,
+            cantidadMultasGraves = 0,
             i,
             j,
             tipoInfraccion,
             valorInfraccion,
-            infraccionCritica;
+            infraccionCritica = 0;
 
     cout << "Ingrese la cantidad de infracciones (0 para salir): " << endl;
     cin >> i;
 
-    if (i = 0) return 1;
+    if (i == 0) return 1;
     
     while (i < 0) { 
         cout << "Cantidad de infracciones errónea, ingrese un número válido: " << endl;
@@ -27,7 +27,9 @@ int main() {
     }
 
     for (j = 0; j < i; j++) {
-        cout << "Ingrese tipo de infracción: " << endl;
+        motivoInfraccion = "";
+        
+        cout << "Ingrese tipo de infracción (1, 2, 3, 4): " << endl;
         cin >> tipoInfraccion;
         
         while (tipoInfraccion < 1 || tipoInfraccion > 4) {
@@ -35,12 +37,9 @@ int main() {
             cin >> tipoInfraccion;
         }
 
-        cout << "Ingrese motivo de infracción: " << endl;
-        cin >> motivoInfraccion;
-
         while (motivoInfraccion == "") {
-            cout << "Motivo de infracción invalido, ingrese algún motivo: " << endl;
-            cin >> motivoInfraccion;
+            cout << "Ingrese motivo de infracción: " << endl;
+            getline(cin, motivoInfraccion);
         }
 
         cout << "Ingrese valor de la multa: " << endl;
@@ -54,8 +53,8 @@ int main() {
         cout << "Ingrese gravedad de la infracción(L, M o G): " << endl;
         cin >> gravedadInfraccion;
 
-        while (gravedadInfraccion != 'L' + gravedadInfraccion != 'M' + gravedadInfraccion != 'G' 
-        + gravedadInfraccion != 'l' + gravedadInfraccion != 'm' + gravedadInfraccion != 'g') {
+        while (gravedadInfraccion != 'L' && gravedadInfraccion != 'M' && gravedadInfraccion != 'G' 
+        && gravedadInfraccion != 'l' && gravedadInfraccion != 'm' && gravedadInfraccion != 'g') {
             cout << "Valor erróneo de gravedad, ingrese 'L', 'M' o 'G': " << endl;
             cin >> gravedadInfraccion;
         }
